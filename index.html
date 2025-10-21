@@ -26,7 +26,7 @@
         .dark ::-webkit-scrollbar-thumb:hover { background: #616161; }
 
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('video.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pic.png');
             background-size: cover;
             background-position: center;
         }
@@ -80,6 +80,31 @@
         <main class="ml-64 flex-1 bg-[#f7fafc] dark:bg-[#1a202c] p-6 lg:p-8">
             <div class="max-w-full mx-auto">
                 
+                <div class="flex justify-between items-center mb-6">
+                    <nav aria-label="Breadcrumb">
+                        <ol class="flex items-center gap-2 text-sm flex-wrap">
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:underline">Dropbox Fundamentals</a></li>
+                            <li><span class="text-gray-500">/</span></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:underline">Module 2: Setting Up</a></li>
+                            <li><span class="text-gray-500 hidden sm:inline">/</span></li>
+                            <li class="font-semibold text-gray-900 dark:text-gray-200 max-w-xs truncate" title="Installing Dropbox">Installing Dropbox</li>
+                        </ol>
+                    </nav>
+                    <div id="notifications-btn-container" class="relative flex-shrink-0">
+                        <button id="notifications-btn" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-[#1f2937] border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <i data-lucide="bell" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                        </button>
+                        <div id="notifications-panel" class="absolute right-0 mt-2 w-[25rem] bg-white dark:bg-[#1f2937] border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-30">
+                            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">Notifications</h3>
+                            </div>
+                            <div class="py-2 max-h-96 overflow-y-auto">
+                               <div class="p-4 text-center text-sm text-gray-500">No new notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <header class="hero-bg rounded-xl text-white p-8 md:p-12 mb-8 shadow-lg">
                     <div class="flex justify-between items-start">
                         <div class="max-w-3xl">
@@ -377,6 +402,23 @@
     
     <script>
         lucide.createIcons();
+
+        // --- Notifications ---
+        (function setupNotifications() {
+            const notificationsBtn = document.getElementById('notifications-btn');
+            const notificationsPanel = document.getElementById('notifications-panel');
+            if (notificationsBtn && notificationsPanel) {
+                notificationsBtn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    notificationsPanel.classList.toggle('hidden');
+                });
+                window.addEventListener('click', (event) => {
+                     if (!event.target.closest('#notifications-btn-container')) {
+                        notificationsPanel.classList.add('hidden');
+                     }
+                });
+            }
+        })();
 
         // Theme Toggler
         const themeToggle = document.getElementById('theme-toggle');
