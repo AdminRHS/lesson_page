@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class=""> <head>
+<html lang="en" class="">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Academy - Lesson Page</title>
@@ -7,6 +8,22 @@
     <script>
       tailwind.config = {
         darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    // Кольори, взяті з вашої дизайн-системи:
+                    // Success: #38A169
+                    'success-main': '#38A169',
+                    'success-light': '#D1FAE5', // Світлий фон, Green-100
+                    // Manager/Fail: #DC2626
+                    'manager-main': '#DC2626',
+                    'manager-light': '#FEE2E2', // Світлий фон, Red-100
+                    // Default/Low: Нейтральні сірі
+                    'default-main': '#718096', // Secondary Text
+                    'default-light': '#F7FAFC', // Default Background
+                },
+            },
+        },
       }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -60,7 +77,7 @@
                 <a href="#" class="flex items-center p-2 text-[#cbd5e0] hover:bg-[#63b3ed]/10 hover:text-[#63b3ed] rounded-lg">
                     <i data-lucide="git-merge" class="w-5 h-5 mr-3"></i> Learning Paths
                 </a>
-                 <a href="#" class="flex items-center p-2 text-[#cbd5e0] hover:bg-[#63b3ed]/10 hover:text-[#63b3ed] rounded-lg">
+                <a href="#" class="flex items-center p-2 text-[#cbd5e0] hover:bg-[#63b3ed]/10 hover:text-[#63b3ed] rounded-lg">
                     <i data-lucide="bar-chart-3" class="w-5 h-5 mr-3"></i> Leaderboard
                 </a>
                 <a href="#" class="flex items-center p-2 text-[#cbd5e0] hover:bg-[#63b3ed]/10 hover:text-[#63b3ed] rounded-lg">
@@ -150,13 +167,13 @@
                             <h2 class="text-2xl font-bold mb-4">Presentation: Installation Steps</h2>
                             <div id="presentation-container" class="relative flex items-center justify-center">
                                <button id="slide-prev" class="absolute z-10 left-4 bg-[#f5f5f5]/75 hover:bg-[#e0e0e0]/75 dark:bg-[#424242]/50 dark:hover:bg-[#616161]/50 p-2 rounded-full transition-colors">
-                                   <i data-lucide="arrow-left" class="w-6 h-6 text-black dark:text-white"></i>
+                                    <i data-lucide="arrow-left" class="w-6 h-6 text-black dark:text-white"></i>
                                </button>
                                <div class="aspect-video w-full bg-[#e0e0e0] dark:bg-[#1a202c] rounded-lg flex items-center justify-center">
-                                   <img src="https://placehold.co/1280x720/e0e0e0/424242?text=Slide+1" alt="Presentation Slide" id="presentation-image" class="max-w-full max-h-[60vh] rounded-lg">
+                                    <img src="https://placehold.co/1280x720/e0e0e0/424242?text=Slide+1" alt="Presentation Slide" id="presentation-image" class="max-w-full max-h-[60vh] rounded-lg">
                                </div>
                                <button id="slide-next" class="absolute z-10 right-4 bg-[#f5f5f5]/75 hover:bg-[#e0e0e0]/75 dark:bg-[#424242]/50 dark:hover:bg-[#616161]/50 p-2 rounded-full transition-colors">
-                                   <i data-lucide="arrow-right" class="w-6 h-6 text-black dark:text-white"></i>
+                                    <i data-lucide="arrow-right" class="w-6 h-6 text-black dark:text-white"></i>
                                </button>
                             </div>
                             <div class="text-center mt-4">
@@ -165,78 +182,196 @@
                         </div>
 
                         <div class="p-6 rounded-xl border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
-                             <h2 class="text-2xl font-bold mb-4">Key Information</h2>
-                             <div>
-                                <h3 class="font-semibold mb-3">What you will learn:</h3>
-                                <ul class="space-y-2 text-sm text-[#718096] dark:text-[#cbd5e0]">
-                                    <li class="flex items-start">
-                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
-                                        <span>How to download the correct Dropbox installer for your operating system.</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
-                                        <span>Step-by-step process for installing the application on Windows and macOS.</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
-                                        <span>How to verify that the installation was successful and locate the Dropbox folder.</span>
-                                    </li>
-                                </ul>
-                            </div>
+                                <h2 class="text-2xl font-bold mb-4">Key Information</h2>
+                                <div>
+                                    <h3 class="font-semibold mb-3">What you will learn:</h3>
+                                    <ul class="space-y-2 text-sm text-[#718096] dark:text-[#cbd5e0]">
+                                        <li class="flex items-start">
+                                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                                            <span>How to download the correct Dropbox installer for your operating system.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                                            <span>Step-by-step process for installing the application on Windows and macOS.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                                            <span>How to verify that the installation was successful and locate the Dropbox folder.</span>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t dark:border-gray-700">
-                                <div class="flip-card h-48 rounded-xl cursor-pointer">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front p-4 border border-dashed border-[#4299e1] bg-[#4299e1]/10 text-[#3182ce] dark:text-[#63b3ed] dark:bg-[#63b3ed]/10">
-                                            <i data-lucide="lightbulb" class="w-10 h-10 mb-2"></i>
-                                            <h4 class="font-bold text-lg">Pro Tip</h4>
-                                            <p class="text-sm">Hover to reveal</p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t dark:border-gray-700">
+                                    <div class="flip-card h-48 rounded-xl cursor-pointer">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front p-4 border border-dashed border-[#4299e1] bg-[#4299e1]/10 text-[#3182ce] dark:text-[#63b3ed] dark:bg-[#63b3ed]/10">
+                                                <i data-lucide="lightbulb" class="w-10 h-10 mb-2"></i>
+                                                <h4 class="font-bold text-lg">Pro Tip</h4>
+                                                <p class="text-sm">Hover to reveal</p>
+                                            </div>
+                                            <div class="flip-card-back p-4 bg-[#3182ce] dark:bg-[#63b3ed] text-white dark:text-black">
+                                                <h4 class="font-bold text-lg mb-2">Offline Installer</h4>
+                                                <p class="text-center text-sm">For installing on multiple machines, use the offline installer from the Dropbox support website to save time.</p>
+                                            </div>
                                         </div>
-                                        <div class="flip-card-back p-4 bg-[#3182ce] dark:bg-[#63b3ed] text-white dark:text-black">
-                                            <h4 class="font-bold text-lg mb-2">Offline Installer</h4>
-                                            <p class="text-center text-sm">For installing on multiple machines, use the offline installer from the Dropbox support website to save time.</p>
+                                    </div>
+                                    <div class="flip-card h-48 rounded-xl cursor-pointer">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front p-4 border border-dashed border-red-400 bg-red-400/10 text-red-600 dark:text-red-400 dark:bg-red-400/10">
+                                                <i data-lucide="alert-triangle" class="w-10 h-10 mb-2"></i>
+                                                <h4 class="font-bold text-lg">Common Pitfall</h4>
+                                                <p class="text-sm">Hover to reveal</p>
+                                            </div>
+                                            <div class="flip-card-back p-4 bg-red-600 dark:bg-red-400 text-white dark:text-black">
+                                                <h4 class="font-bold text-lg mb-2">Admin Rights</h4>
+                                                <p class="text-center text-sm">Ensure you have administrator privileges on your computer before starting, or the installation may fail.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card h-48 rounded-xl cursor-pointer">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front p-4 border border-dashed border-green-400 bg-green-400/10 text-green-600 dark:text-green-400 dark:bg-green-400/10">
+                                                <i data-lucide="file-check-2" class="w-10 h-10 mb-2"></i>
+                                                <h4 class="font-bold text-lg">Did You Know?</h4>
+                                                <p class="text-sm">Hover to reveal</p>
+                                            </div>
+                                            <div class="flip-card-back p-4 bg-green-600 dark:bg-green-400 text-white dark:text-black">
+                                                <h4 class="font-bold text-lg mb-2">Selective Sync</h4>
+                                                <p class="text-center text-sm">You don't have to sync everything! After installation, you can choose which folders sync to your computer to save disk space.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flip-card h-48 rounded-xl cursor-pointer">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front p-4 border border-dashed border-red-400 bg-red-400/10 text-red-600 dark:text-red-400 dark:bg-red-400/10">
-                                            <i data-lucide="alert-triangle" class="w-10 h-10 mb-2"></i>
-                                            <h4 class="font-bold text-lg">Common Pitfall</h4>
-                                            <p class="text-sm">Hover to reveal</p>
-                                        </div>
-                                        <div class="flip-card-back p-4 bg-red-600 dark:bg-red-400 text-white dark:text-black">
-                                            <h4 class="font-bold text-lg mb-2">Admin Rights</h4>
-                                            <p class="text-center text-sm">Ensure you have administrator privileges on your computer before starting, or the installation may fail.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="flip-card h-48 rounded-xl cursor-pointer">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front p-4 border border-dashed border-green-400 bg-green-400/10 text-green-600 dark:text-green-400 dark:bg-green-400/10">
-                                            <i data-lucide="file-check-2" class="w-10 h-10 mb-2"></i>
-                                            <h4 class="font-bold text-lg">Did You Know?</h4>
-                                            <p class="text-sm">Hover to reveal</p>
-                                        </div>
-                                        <div class="flip-card-back p-4 bg-green-600 dark:bg-green-400 text-white dark:text-black">
-                                            <h4 class="font-bold text-lg mb-2">Selective Sync</h4>
-                                            <p class="text-center text-sm">You don't have to sync everything! After installation, you can choose which folders sync to your computer to save disk space.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                             </div>
                         </div>
 
-                        <div class="p-6 rounded-xl border-2 border-dashed border-[#e0e0e0] bg-[#f7fafc] dark:bg-[#1f2937] dark:border-[#424242]">
-                            <h2 class="text-2xl font-bold mb-4 text-center">Test Your Knowledge</h2>
-                            <p class="text-center text-[#718096] dark:text-[#cbd5e0] mb-6">A test is available for this lesson. You can take it now or after reviewing all materials.</p>
-                            <div class="text-center">
-                                <button class="bg-[#4299e1] text-white font-bold py-3 px-10 rounded-lg hover:bg-[#3182ce] transition-colors text-base">
-                                    Start Test
-                                </button>
-                            </div>
-                        </div>
+                        <div class="p-6 rounded-xl border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
+                                <h2 class="text-2xl font-bold mb-6">Test: Knowledge Check</h2>
+                                <form id="quiz-form" class="space-y-8">
 
+                                    <div>
+                                        <p class="font-semibold mb-3">1. According to the video, which website should you visit to download the Dropbox installer?</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q1" value="a" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">a)</span><span>dropbox.net</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q1" value="b" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">b)</span><span>dropbox.com</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q1" value="c" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">c)</span><span>dbox.com/download</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q1" value="d" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">d)</span><span>cloudstorage.com</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p class="font-semibold mb-3">2. What is the Pro Tip for installing Dropbox on multiple machines efficiently?</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q2" value="a" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">a)</span><span>Use the mobile app installer.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q2" value="b" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">b)</span><span>Create a copy of the installed program.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q2" value="c" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">c)</span><span>Use the offline installer.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q2" value="d" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">d)</span><span>Install via command line.</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p class="font-semibold mb-3">3. What is a Common Pitfall that could prevent a successful installation?</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q3" value="a" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">a)</span><span>Slow internet speed.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q3" value="b" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">b)</span><span>Lacking administrator privileges.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q3" value="c" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">c)</span><span>Insufficient RAM.</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q3" value="d" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">d)</span><span>Having an antivirus program running.</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p class="font-semibold mb-3">4. What feature allows users to choose which folders sync to their computer to save disk space?</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q4" value="a" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">a)</span><span>Smart Sync</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q4" value="b" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">b)</span><span>Selective Sync</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q4" value="c" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">c)</span><span>Space Saver</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q4" value="d" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">d)</span><span>Folder Selector</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p class="font-semibold mb-3">5. In which course module is the current lesson "Installing Dropbox" located?</p>
+                                        <div class="space-y-2">
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q5" value="a" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">a)</span><span>Module 1: Getting Started</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q5" value="b" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">b)</span><span>Module 2: Setting Up Dropbox</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q5" value="c" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">c)</span><span>Module 3: Everyday Skills</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border border-[#e0e0e0] dark:border-[#424242] rounded-lg hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] cursor-pointer">
+                                                <input type="radio" name="q5" value="d" class="w-4 h-4 text-[#4299e1] focus:ring-[#4299e1] mr-3">
+                                                <span class="font-bold mr-2">d)</span><span>Learning Paths</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between pt-4">
+                                        <button type="submit" class="bg-[#4299e1] text-white font-bold h-12 px-10 rounded-lg hover:bg-[#3182ce] transition-colors text-base flex items-center justify-center gap-2 flex-shrink-0">
+                                            <i data-lucide="send" class="w-5 h-5"></i>
+                                            Submit Answers
+                                        </button>
+                                        
+                                        <div id="quiz-results" class="hidden h-12 px-5 rounded-lg shadow-inner flex items-center gap-3">
+                                            <i data-lucide="award" class="w-6 h-6 flex-shrink-0"></i>
+                                            <span id="result-text" class="font-semibold text-base"></span>
+                                        </div>
+                                    </div>
+
+                                </form>
+                        </div>
                         <div id="reviews" class="pt-8">
                             <h2 class="text-2xl font-bold mb-6">Lesson Reviews</h2>
                             <div class="space-y-6">
@@ -281,12 +416,13 @@
                                                     <div class="flex-grow">
                                                         <div><span class="font-semibold text-sm">Sarah Chen</span><span class="text-xs text-[#718096] dark:text-[#cbd5e0] ml-2">6 hours ago</span></div>
                                                         <p class="text-[#718096] dark:text-[#cbd5e0] text-sm mt-1">Oh, nice catch, I totally missed that when going through the lesson. Thanks for pointing it out!</p>
+
                                                     </div>
                                                 </div>
                                                 <div class="flex items-start gap-3">
                                                     <div class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center font-bold text-red-700 dark:text-red-400 text-sm flex-shrink-0">MJ</div>
                                                     <div class="flex-grow">
-                                                        <div><span class="font-semibold text-sm">Mike Johnson</span><span class="text-xs text-[#718096] dark:text-[#cbd5e0] ml-2">4 hours ago</span></div>
+                                                        <div><span class="font-semibold text-sm">Mike Johnson</span><span class="text-xs text-[#718096] dark:text-[#cbd5e0] ml-2">4hours ago</span></div>
                                                         <p class="text-[#718096] dark:text-[#cbd5e0] text-sm mt-1">Submitting a change request now.</p>
                                                     </div>
                                                 </div>
@@ -401,60 +537,140 @@
     </div>
     
     <script>
-        lucide.createIcons();
-
-        // --- Notifications ---
-        (function setupNotifications() {
-            const notificationsBtn = document.getElementById('notifications-btn');
-            const notificationsPanel = document.getElementById('notifications-panel');
-            if (notificationsBtn && notificationsPanel) {
-                notificationsBtn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    notificationsPanel.classList.toggle('hidden');
-                });
-                window.addEventListener('click', (event) => {
-                     if (!event.target.closest('#notifications-btn-container')) {
-                        notificationsPanel.classList.add('hidden');
-                     }
-                });
-            }
-        })();
-
-        // Theme Toggler
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlEl = document.documentElement;
-        if (localStorage.getItem('theme') === 'dark') {
-          htmlEl.classList.add('dark');
-        }
-        themeToggle.addEventListener('click', () => {
-            htmlEl.classList.toggle('dark');
-            localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
-        });
-
-        // Presentation Slider Logic
         document.addEventListener("DOMContentLoaded", () => {
-            const presentationImage = document.getElementById('presentation-image');
-            const slideCounter = document.getElementById('slide-counter');
-            const prevBtn = document.getElementById('slide-prev');
-            const nextBtn = document.getElementById('slide-next');
+            // Re-create lucide icons after DOM is fully loaded.
+            lucide.createIcons();
 
-            if (presentationImage) {
+            // --- Notifications ---
+            (function setupNotifications() {
+                const notificationsBtn = document.getElementById('notifications-btn');
+                const notificationsPanel = document.getElementById('notifications-panel');
+                if (notificationsBtn && notificationsPanel) {
+                    notificationsBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        notificationsPanel.classList.toggle('hidden');
+                    });
+                    window.addEventListener('click', (event) => {
+                          if (!event.target.closest('#notifications-btn-container')) {
+                            notificationsPanel.classList.add('hidden');
+                          }
+                    });
+                }
+            })();
+
+            // --- Theme Toggler ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlEl = document.documentElement;
+            if (localStorage.getItem('theme') === 'dark') {
+              htmlEl.classList.add('dark');
+            }
+            themeToggle.addEventListener('click', () => {
+                htmlEl.classList.toggle('dark');
+                localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            });
+
+            // --- Presentation Logic ---
+            (function setupPresentation() {
+                const prevBtn = document.getElementById('slide-prev');
+                const nextBtn = document.getElementById('slide-next');
+                const image = document.getElementById('presentation-image');
+                const counter = document.getElementById('slide-counter');
+                const totalSlides = 8; // As per the counter text
                 let currentSlide = 1;
-                const totalSlides = 8;
 
                 function updateSlide() {
-                    presentationImage.src = `https://placehold.co/1280x720/e0e0e0/424242?text=Slide+${currentSlide}`;
-                    slideCounter.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+                    image.src = `https://placehold.co/1280x720/e0e0e0/424242?text=Slide+${currentSlide}`;
+                    counter.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+                    prevBtn.disabled = currentSlide === 1;
+                    nextBtn.disabled = currentSlide === totalSlides;
+                    prevBtn.classList.toggle('opacity-50', currentSlide === 1);
+                    nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides);
                 }
 
                 prevBtn.addEventListener('click', () => {
-                    currentSlide = currentSlide > 1 ? currentSlide - 1 : totalSlides;
-                    updateSlide();
+                    if (currentSlide > 1) {
+                        currentSlide--;
+                        updateSlide();
+                    }
                 });
 
                 nextBtn.addEventListener('click', () => {
-                    currentSlide = currentSlide < totalSlides ? currentSlide + 1 : 1;
-                    updateSlide();
+                    if (currentSlide < totalSlides) {
+                        currentSlide++;
+                        updateSlide();
+                    }
+                });
+                
+                updateSlide(); // Initialize
+            })();
+
+            // --- Quiz Logic ---
+            const quizForm = document.getElementById('quiz-form');
+            if (quizForm) {
+                quizForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Запобігаємо перезавантаженню сторінки
+
+                    // 1. Визначаємо правильні відповіді
+                    const correctAnswers = {
+                        q1: 'b',
+                        q2: 'c',
+                        q3: 'b',
+                        q4: 'b',
+                        q5: 'b' 
+                    };
+                    const totalQuestions = Object.keys(correctAnswers).length;
+                    let score = 0;
+                    
+                    // 2. Збираємо відповіді користувача
+                    const formData = new FormData(quizForm);
+                    
+                    for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                        if (formData.get(question) === correctAnswer) {
+                            score++;
+                        }
+                    }
+
+                    // 3. Розраховуємо відсоток
+                    const percentage = (score / totalQuestions) * 100;
+
+                    // 4. Отримуємо елементи для відображення результату
+                    const resultsContainer = document.getElementById('quiz-results');
+                    const resultText = document.getElementById('result-text');
+                    const resultIcon = resultsContainer.querySelector('svg'); 
+
+                    // 5. Скидаємо всі попередні класи кольорів
+                    const bgClasses = ['bg-success-light', 'bg-manager-light', 'bg-default-light'];
+                    const textClasses = ['text-success-main', 'text-manager-main', 'text-default-main'];
+                    
+                    resultsContainer.classList.remove(...bgClasses, ...textClasses);
+                    
+                    if (resultIcon) {
+                        resultIcon.classList.remove(...textClasses);
+                    }
+
+                    // 
+                    // !!! ЗМІНА ТУТ !!!
+                    // Текст результату змінено на англійську.
+                    //
+                    resultText.textContent = `Your score: ${score}/${totalQuestions} (${percentage.toFixed(0)}%)`;
+
+                    // 7. Застосовуємо нові класи згідно з вашими правилами
+                    if (percentage > 70) {
+                        // Зелений (Success)
+                        resultsContainer.classList.add('bg-success-light', 'text-success-main');
+                        if (resultIcon) resultIcon.classList.add('text-success-main');
+                    } else if (percentage >= 20) { 
+                        // Червоний (Manager/Fail)
+                        resultsContainer.classList.add('bg-manager-light', 'text-manager-main');
+                        if (resultIcon) resultIcon.classList.add('text-manager-main');
+                    } else {
+                        // Сірий (Default)
+                        resultsContainer.classList.add('bg-default-light', 'text-default-main');
+                        if (resultIcon) resultIcon.classList.add('text-default-main');
+                    }
+
+                    // 8. Показуємо блок результатів
+                    resultsContainer.classList.remove('hidden');
                 });
             }
         });
