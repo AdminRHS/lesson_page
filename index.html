@@ -26,10 +26,23 @@
         .dark ::-webkit-scrollbar-thumb:hover { background: #616161; }
 
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pic.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bird.png');
             background-size: cover;
-            background-position: center;
+            background-position: right;
         }
+
+        /* --- ДОДАНО СТИЛІ МОДАЛЬНОГО ВІКНА З ПОПЕРЕДНЬОГО ФАЙЛУ --- */
+        .modal-enter { animation: modal-enter 0.3s ease-out forwards; }
+        .modal-leave { animation: modal-leave 0.3s ease-in forwards; }
+        @keyframes modal-enter {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes modal-leave {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.95); }
+        }
+        /* --- КІНЕЦЬ ДОДАНИХ СТИЛІВ --- */
 
         /* Flipping Card Styles */
         .flip-card { perspective: 1000px; }
@@ -62,6 +75,23 @@
             bottom: 0;
             /* left position is now set by JS */
             animation: confetti-burst 0.8s ease-out forwards;
+        }
+
+        /* Grid-lined notes textarea */
+        .notes-textarea {
+            background-color: #ffffff; /* Light mode bg */
+            background-image:
+                linear-gradient(#e0e0e0 1px, transparent 1px),
+                linear-gradient(to right, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            line-height: 20px; /* Match background size */
+            padding: 4px 8px; /* Changed from 10px to align text in cell */
+        }
+        .dark .notes-textarea {
+            background-color: #1f2937; /* Dark mode bg */
+            background-image:
+                linear-gradient(#424242 1px, transparent 1px),
+                linear-gradient(to right, #424242 1px, transparent 1px);
         }
 
     </style>
@@ -113,18 +143,11 @@
                             <li class="font-semibold text-gray-900 dark:text-gray-200 max-w-xs truncate" title="Installing Dropbox">Installing Dropbox</li>
                         </ol>
                     </nav>
-                    <div id="notifications-btn-container" class="relative flex-shrink-0">
-                        <button id="notifications-btn" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-[#1f2937] border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                            <i data-lucide="bell" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    <div class="flex-shrink-0">
+                        <button class="flex items-center gap-2 text-sm font-semibold text-white bg-[#4299e1] hover:bg-[#3182ce] transition-colors rounded-lg px-4 py-2">
+                            <i data-lucide="edit-3" class="w-4 h-4"></i>
+                            Edit Lesson
                         </button>
-                        <div id="notifications-panel" class="absolute right-0 mt-2 w-[25rem] bg-white dark:bg-[#1f2937] border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-30">
-                            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
-                                <h3 class="font-semibold text-gray-800 dark:text-gray-200">Notifications</h3>
-                            </div>
-                            <div class="py-2 max-h-96 overflow-y-auto">
-                               <div class="p-4 text-center text-sm text-gray-500">No new notifications</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -146,10 +169,13 @@
                             <div class="flex items-center"><i data-lucide="video" class="w-4 h-4 mr-2"></i> 2 Videos</div>
                             <div class="flex items-center"><i data-lucide="presentation" class="w-4 h-4 mr-2"></i> 1 Presentation</div>
                             <div class="flex items-center"><i data-lucide="file-check" class="w-4 h-4 mr-2"></i> 1 Test</div>
+                            <button id="open-materials-btn" class="flex items-center p-2 rounded-lg hover:bg-white/20 transition-colors">
+                                <i data-lucide="package" class="w-4 h-4 mr-2"></i> Materials
+                            </button>
                         </div>
                         <div class="flex items-center gap-x-6">
                             <a href="#reviews" class="flex items-center p-2 rounded-lg hover:bg-white/20 transition-colors"><i data-lucide="message-square" class="w-4 h-4 mr-2"></i> Reviews</a>
-                            <span class="flex items-center"><i data-lucide="book-open-check" class="w-4 h-4 mr-2"></i> Lesson 2 of 5</span>
+                            <span class="flex items-center"><i data-lucide="book-open-check" class="w-4 h-4 mr-2"></i> Lesson 2 of 6</span>
                         </div>
                     </div>
                 </header>
@@ -207,7 +233,7 @@
                                 </ul>
                             </div>
 
-                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t dark:border-gray-700">
+                           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t dark:border-gray-700">
                                 <div class="flip-card h-48 rounded-xl cursor-pointer">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front p-4 border border-dashed border-[#4299e1] bg-[#4299e1]/10 text-[#3182ce] dark:text-[#63b3ed] dark:bg-[#63b3ed]/10">
@@ -276,7 +302,7 @@
                                     <div class="text-right mt-4">
                                         <button class="bg-[#4299e1] text-[#ffffff] font-semibold py-2 px-6 rounded-lg hover:bg-[#3182ce] dark:bg-[#63b3ed] dark:text-[#000000] dark:hover:bg-[#90cdf4]">Publish</button>
                                     </div>
-                                </div>
+                               </div>
                                 <div class="p-5 rounded-xl shadow-sm border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
                                     <div class="flex items-start gap-4">
                                         <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center font-bold text-orange-700 dark:text-orange-400 flex-shrink-0">AJ</div>
@@ -334,7 +360,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full lg:w-[30%] lg:sticky top-8 self-start space-y-8">
+                    <div class="w-full lg:w-[30%] lg:sticky top-8 self-start space-y-6">
                         
                         <div class="p-6 rounded-xl border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
                             <details class="group">
@@ -353,8 +379,17 @@
                             </details>
                         </div>
 
-                        
-                        
+                        <div class="p-6 rounded-xl border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
+                            <details class="group">
+                                <summary class="font-semibold cursor-pointer flex justify-between items-center">
+                                    My Notes
+                                    <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+                                </summary>
+                                <div class="mt-4 pt-4 border-t dark:border-gray-700">
+                                    <textarea rows="8" class="notes-textarea w-full rounded-lg border border-[#e0e0e0] dark:border-[#424242] focus:outline-none focus:border-[#4299e1] dark:focus:border-[#63b3ed] transition" placeholder="Write your notes here..."></textarea>
+                                </div>
+                            </details>
+                        </div>
                         <div class="p-6 rounded-xl border border-[#e0e0e0] bg-[#ffffff] dark:bg-[#1f2937] dark:border-[#424242]">
                             
                             <div class="space-y-3 mb-6">
@@ -372,9 +407,9 @@
                             </div>
 
                             <h3 class="text-xl font-bold mb-1">Dropbox Fundamentals</h3>
-                            <p class="text-sm text-[#718096] dark:text-[#cbd5e0] mb-4">2/5 lessons completed</p>
+                            <p class="text-sm text-[#718096] dark:text-[#cbd5e0] mb-4">2/6 lessons completed</p>
                             <div class="w-full bg-[#eeeeee] dark:bg-[#1a202c] rounded-full h-1.5 mb-6">
-                              <div class="bg-gradient-to-r from-[#63b3ed] to-[#4299e1] h-1.5 rounded-full" style="width: 40%"></div>
+                              <div class="bg-gradient-to-r from-[#63b3ed] to-[#4299e1] h-1.5 rounded-full" style="width: 33.33%"></div>
                             </div>
                             
                             <div class="space-y-2" id="course-sidebar-modules">
@@ -429,26 +464,99 @@
             </div>
         </main>
     </div>
-    
+
+    <div id="materials-modal" class="fixed inset-0 bg-black/50 z-40 flex items-center justify-center p-4 hidden">
+        <div id="materials-modal-content" class="bg-[#ffffff] dark:bg-[#1f2937] rounded-xl shadow-lg w-full max-w-2xl relative p-6 md:p-8">
+            <button id="close-materials-btn" class="absolute top-4 right-4 p-2 text-gray-500 dark:text-gray-400 hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] rounded-full transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-6">
+                Useful Materials
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-2">
+                <a href="https://www.youtube.com/watch?v=bBC-Xb92sjc" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg border border-[#e0e0e0] dark:border-[#424242] hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="video" class="w-5 h-5 text-[#4299e1] dark:text-[#63b3ed]"></i>
+                        <span class="font-semibold">Creating a Folder (Video)</span>
+                    </div>
+                </a>
+                <a href="https://support.dropbox.com/files-folders/create-delete/create-folder" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg border border-[#e0e0e0] dark:border-[#424242] hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="file-text" class="w-5 h-5 text-green-500"></i>
+                        <span class="font-semibold">Creating a Folder (Article)</span>
+                    </div>
+                </a>
+                <a href="https://support.dropbox.com/files-folders/share/share-with-others" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg border border-[#e0e0e0] dark:border-[#424242] hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="share-2" class="w-5 h-5 text-orange-500"></i>
+                        <span class="font-semibold">How to Share a File</span>
+                    </div>
+                </a>
+                 <a href="https://support.dropbox.com/sync/syncing-overview/selective-sync" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg border border-[#e0e0e0] dark:border-[#424242] hover:bg-[#f5f5f5] dark:hover:bg-[#2d3748] transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="cloud-cog" class="w-5 h-5 text-purple-500"></i>
+                        <span class="font-semibold">Setting up Selective Sync</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
     <script>
         lucide.createIcons();
 
-        // --- Notifications ---
-        (function setupNotifications() {
-            const notificationsBtn = document.getElementById('notifications-btn');
-            const notificationsPanel = document.getElementById('notifications-panel');
-            if (notificationsBtn && notificationsPanel) {
-                notificationsBtn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    notificationsPanel.classList.toggle('hidden');
-                });
-                window.addEventListener('click', (event) => {
-                     if (!event.target.closest('#notifications-btn-container')) {
-                        notificationsPanel.classList.add('hidden');
-                     }
-                });
+        /* --- ЗМІНЕНО: ЛОГІКА МОДАЛЬНОГО ВІКНА --- */
+        // --- Modal Logic (from first file) ---
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            // Використовуємо [id$="-modal-content"], щоб знайти 'materials-modal-content'
+            const modalContent = modal.querySelector('[id$="-modal-content"]'); 
+            modal.classList.remove('hidden');
+            if (modalContent) {
+                modalContent.classList.remove('modal-leave');
+                modalContent.classList.add('modal-enter');
             }
+            lucide.createIcons(); // Перемальовуємо іконки в модалці
+        }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            const modalContent = modal.querySelector('[id$="-modal-content"]');
+            if (modalContent) {
+                modalContent.classList.remove('modal-enter');
+                modalContent.classList.add('modal-leave');
+            }
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Чекаємо на завершення анімації
+        }
+        
+        // --- Materials Modal Listeners (adapted for new functions) ---
+        (function setupMaterialsModalListeners() {
+            const openBtn = document.getElementById('open-materials-btn');
+            const closeBtn = document.getElementById('close-materials-btn');
+            const modal = document.getElementById('materials-modal'); // ID оновлено
+
+            if (!openBtn || !closeBtn || !modal) return;
+
+            openBtn.addEventListener('click', () => {
+                openModal('materials-modal');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                closeModal('materials-modal');
+            });
+
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) { // Закриття по кліку на оверлей
+                    closeModal('materials-modal');
+                }
+            });
         })();
+        /* --- КІНЕЦЬ ЗМІНЕНОЇ ЛОГІКИ --- */
+
 
         // Theme Toggler
         const themeToggle = document.getElementById('theme-toggle');
@@ -500,73 +608,50 @@
 
             completeBtn.addEventListener('click', () => {
                 confettiContainer.innerHTML = ''; // Clear previous
-                const numParticles = 90; // Increased particle count
+                const numParticles = 90;
 
                 for (let i = 0; i < numParticles; i++) {
                     const confetti = document.createElement('div');
                     confetti.classList.add('confetti');
                     
-                    // Random color
                     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                     
-                    // Random size
-                    const size = Math.floor(Math.random() * 4) + 6 + 'px'; // 6px to 10px
+                    const size = Math.floor(Math.random() * 4) + 6 + 'px';
                     confetti.style.width = size;
                     confetti.style.height = size;
 
-                    // Random shape
                     if (Math.random() > 0.5) {
                         confetti.style.borderRadius = '50%';
                     }
 
-                    // Random horizontal start position over the button
                     confetti.style.left = (Math.random() * 100) + '%';
                     
-                    // Random horizontal spread
-                    confetti.style.setProperty('--spread-x', (Math.random() - 0.5) * 200 + 'px'); // -100px to +100px
-                    // Random vertical spread (all upwards)
-                    confetti.style.setProperty('--spread-y', (Math.random() * -100) - 80 + 'px'); // -80px to -180px
+                    confetti.style.setProperty('--spread-x', (Math.random() - 0.5) * 200 + 'px');
+                    confetti.style.setProperty('--spread-y', (Math.random() * -100) - 80 + 'px');
                     
-                    // Random animation delay
                     confetti.style.animationDelay = (Math.random() * 0.1) + 's';
 
                     confettiContainer.appendChild(confetti);
 
-                    // Remove confetti element after animation
                     setTimeout(() => {
                         confetti.remove();
-                    }, 1000); // 1 second
+                    }, 1000);
                 }
             });
         })();
 
-        // --- Sidebar Module Accordion ---
+        // --- Sidebar Module Accordion (Updated Logic) ---
         (function setupModuleAccordion() {
             const moduleContainer = document.getElementById('course-sidebar-modules');
             if (!moduleContainer) return;
 
             const allModules = Array.from(moduleContainer.querySelectorAll('details'));
-            const currentModule = allModules.find(mod => mod.hasAttribute('open'));
-            
-            if (currentModule) {
-                currentModule.classList.add('current-module');
-            }
 
             allModules.forEach(module => {
-                module.querySelector('summary').addEventListener('click', (e) => {
-                    const clickedDetails = e.target.closest('details');
-
-                    // If clicking the current module, prevent it from closing
-                    if (clickedDetails.classList.contains('current-module') && clickedDetails.hasAttribute('open')) {
-                        e.preventDefault();
-                        return;
-                    }
-
-                    // If opening a new (non-current) module
-                    if (!clickedDetails.hasAttribute('open')) {
-                        // Close all *other* non-current modules
+                module.addEventListener('toggle', (event) => {
+                    if (event.target.open) {
                         allModules.forEach(mod => {
-                            if (mod !== clickedDetails && !mod.classList.contains('current-module')) {
+                            if (mod !== event.target) {
                                 mod.removeAttribute('open');
                             }
                         });
